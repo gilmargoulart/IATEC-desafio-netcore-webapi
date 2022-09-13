@@ -9,6 +9,7 @@ namespace IATEC_desafio.Common.Utils
 
         public static bool Check(StatusPedidoEnum status, StatusPedidoEnum newStatus)
         {
+            // Status antigo
             StatusPedidoMock findStatus = _statusList.Find(s => s.Status == status);
             
             if (findStatus is null)
@@ -24,7 +25,7 @@ namespace IATEC_desafio.Common.Utils
             }
 
             // Verificar se o novo status está na lista
-            if (findStatus.Allowed.Any(s => s == newStatus))
+            if (findStatus.Allowed.Exists(s => s == newStatus))
             {
                 // Permite alteração de status
                 return true;

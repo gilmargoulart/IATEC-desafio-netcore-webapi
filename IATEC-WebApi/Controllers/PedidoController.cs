@@ -104,8 +104,16 @@ namespace IATEC_desafio.Controllers
                 );
             }
 
+            // verificar se o pedido já está no mesmo status.
+            if (pedido.StatusPedido == statusPedido)
+            {
+                return BadRequest(
+                    new { error = $"Pedido '{id}' já está com status '{statusPedido}'."}
+                );
+            }
+
             // Verificar se a alteração de status é válida.
-            if (CheckPedidoStatus.Check(pedido.StatusPedido, statusPedido)){
+            if (!CheckPedidoStatus.Check(pedido.StatusPedido, statusPedido)){
                 return BadRequest(
                     new { error = "Alteração de status não permitida." }
                 );
@@ -126,7 +134,9 @@ namespace IATEC_desafio.Controllers
                 return NotFound();
             }
 
-            return StatusCode(StatusCodes.Status200OK);
+            return StatusCode(StatusCodes.Status200OK,
+                new { novoStatus = pedido.StatusPedido }
+            );
         }
 
         private Pedido PedidoFromDTO(PedidoDTO pedidoDTO, Vendedor vendedor){

@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UsePathBase(new PathString("/api-docs/index.html"));
+//app.UsePathBase(new PathString("/api-docs/index.html"));
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())

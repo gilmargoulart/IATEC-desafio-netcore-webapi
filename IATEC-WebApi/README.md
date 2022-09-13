@@ -1,5 +1,11 @@
 # IATEC
 
+
+## Executar
+```dotnet run```
+
+Acessar [http://localhost:5135/api-docs]
+
 ## Desafio técnico
 
 - Quando você começar, faça um commit vazio com a mensagem Inicial e quando terminar, faça o commit com uma mensagem final;
@@ -35,3 +41,10 @@ De: Pagamento Aprovado Para: Enviado
 De: Pagamento Aprovado Para: Cancelada
 
 De: Enviado. Para: Entregue
+
+Status:
+> 0: Aguardando pagamento\
+> 1: Pagamento aprovado\
+> 2: Enviado\
+> 3: Entregue\
+> 9: Cancelado
